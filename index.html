@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Уютная кофейня — Ростов-на-Дону</title>
+<meta name="description" content="Кофе, завтраки и бизнес-ланч в Ростове-на-Дону. Меню, цены, как добраться.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☕</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,700;1,500&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6ef; --ink:#1f2b25; --muted:#5d6b63; --green:#2f4a3c; --leaf:#dfe7d6;
+  --gold:#e3a72f; --card:#ffffff; --line:#d5ddcc; --r:18px;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font:17px/1.6 Onest,system-ui,sans-serif;color:var(--ink);background:var(--bg)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+h1,h2,h3{font-family:Lora,Georgia,serif;line-height:1.15}
+h2{font-size:clamp(28px,4vw,40px);margin-bottom:12px}
+
+/* Шапка */
+header{position:sticky;top:0;z-index:10;background:rgba(244,246,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-family:Lora,serif;font-weight:700;font-size:20px;text-decoration:none}
+nav a{margin-left:22px;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--ink)}
+@media(max-width:600px){nav a:not(.keep){display:none}}
+
+/* Главный экран */
+.hero{padding:56px 0 64px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(40px,7vw,76px);font-weight:700;color:var(--green)}
+.hero h1 em{font-weight:500}
+.hero p.lead{margin:18px 0 26px;max-width:46ch;color:var(--muted);font-size:19px}
+.rating{display:inline-flex;gap:10px;align-items:center;background:var(--leaf);padding:6px 14px;border-radius:99px;font-weight:600;font-size:15px;margin-bottom:20px}
+.rating b{color:var(--green)}
+.btns{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;padding:13px 22px;border-radius:99px;font-weight:600;text-decoration:none;border:2px solid var(--green)}
+.btn.primary{background:var(--green);color:#fff}
+.btn.primary:hover{background:#243a2f}
+.btn.ghost:hover{background:var(--leaf)}
+.hero-photo{aspect-ratio:4/5;border-radius:200px 200px var(--r) var(--r);overflow:hidden;
+  background:linear-gradient(160deg,#cdd9c2,#e8c98a);display:grid;place-items:center;font-size:96px}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+@media(max-width:800px){.hero .wrap{grid-template-columns:1fr}.hero-photo{aspect-ratio:16/11;border-radius:var(--r);order:-1}}
+
+/* Меню */
+section{padding:56px 0}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 28px}
+.tab{font:inherit;font-weight:600;padding:9px 18px;border-radius:99px;border:2px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:20px}
+.item{background:var(--card);border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.item .ph{aspect-ratio:4/3;background:var(--leaf);display:grid;place-items:center;font-size:54px}
+.item .ph img{width:100%;height:100%;object-fit:cover}
+.item .body{padding:14px 16px 18px}
+.item h3{font-size:19px;display:flex;justify-content:space-between;gap:10px;align-items:baseline}
+.price{font-family:Onest,sans-serif;font-weight:600;color:var(--green);white-space:nowrap}
+.item p{color:var(--muted);font-size:15px;margin-top:4px}
+.note{margin-top:20px;color:var(--muted);font-size:15px}
+
+/* О нас */
+.about{background:var(--green);color:#eef2e8}
+.about h2{color:#fff}
+.about .cols{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.about p{max-width:52ch;color:#cfdcc9}
+.chips{display:flex;flex-wrap:wrap;gap:10px;align-content:flex-start}
+.chip{border:1.5px solid rgba(255,255,255,.35);border-radius:99px;padding:7px 16px;font-size:15px}
+@media(max-width:800px){.about .cols{grid-template-columns:1fr}}
+
+/* Контакты */
+.contacts .cols{display:grid;grid-template-columns:.8fr 1.2fr;gap:32px;align-items:start}
+dl{display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:16px 0 24px}
+dt{color:var(--muted)} dd{font-weight:500}
+.map{border-radius:var(--r);overflow:hidden;border:1px solid var(--line);aspect-ratio:4/3;background:var(--leaf)}
+.map iframe{width:100%;height:100%;border:0}
+@media(max-width:800px){.contacts .cols{grid-template-columns:1fr}}
+
+footer{padding:28px 0;color:var(--muted);font-size:14px;border-top:1px solid var(--line)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#">Уютная кофейня</a>
+    <nav>
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts" class="keep">Контакты</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ГЛАВНЫЙ ЭКРАН -->
+<div class="hero">
+  <div class="wrap">
+    <div>
+      <div class="rating"><b>5,0</b> по оценкам на Яндекс Картах · 138 оценок</div>
+      <h1>Кофе, в&nbsp;котором <em>уютно</em></h1>
+      <p class="lead">Кофе, чай, завтраки и бизнес-ланч в Ростове-на-Дону. Можно с собакой и с ноутбуком.</p>
+      <div class="btns">
+        <a class="btn primary" href="https://wa.me/79054325577" target="_blank" rel="noopener">Заказать в WhatsApp</a>
+        <a class="btn ghost" href="#contacts">Как добраться</a>
+      </div>
+    </div>
+    <!-- Положите фото в images/hero.jpg -->
+    <div class="hero-photo"><img src="images/hero.jpg" alt="Интерьер кофейни" onerror="this.remove();this.parentNode.textContent='☕'"></div>
+  </div>
+</div>
+
+<!-- МЕНЮ -->
+<section id="menu">
+  <div class="wrap">
+    <h2>Меню и цены</h2>
+    <div class="tabs" role="tablist" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+    <p class="note">Цены в рублях. Актуальное меню можно уточнить по телефону или в WhatsApp.</p>
+  </div>
+</section>
+
+<!-- О НАС -->
+<section class="about" id="about">
+  <div class="wrap cols">
+    <div>
+      <h2>Заходите посидеть</h2>
+      <p>Мы варим кофе, печём десерты и готовим завтраки каждый день. Средний чек — 200–350 ₽. По будням подаём бизнес-ланч за 230 ₽.</p>
+    </div>
+    <div class="chips">
+      <span class="chip">Wi-Fi</span>
+      <span class="chip">Кофе с собой</span>
+      <span class="chip">Завтраки</span>
+      <span class="chip">Бизнес-ланч</span>
+      <span class="chip">Можно с собакой</span>
+      <span class="chip">Можно с ноутбуком</span>
+      <span class="chip">Розетки для зарядки</span>
+      <span class="chip">Предзаказ онлайн</span>
+      <span class="chip">Оплата картой, QR-кодом, наличными</span>
+    </div>
+  </div>
+</section>
+
+<!-- КОНТАКТЫ -->
+<section class="contacts" id="contacts">
+  <div class="wrap cols">
+    <div>
+      <h2>Как нас найти</h2>
+      <dl>
+        <dt>Город</dt><dd>Ростов-на-Дону</dd>
+        <dt>Адрес</dt><dd>Впишите улицу и дом</dd>
+        <dt>Часы</dt><dd>Впишите время работы</dd>
+        <dt>Телефон</dt><dd><a href="tel:+79054325577">+7 905 432-55-77</a></dd>
+      </dl>
+      <div class="btns">
+        <a class="btn primary" href="https://yandex.ru/maps/-/CXFByC~A" target="_blank" rel="noopener">Открыть в Яндекс Картах</a>
+      </div>
+    </div>
+    <div class="map">
+      <iframe title="Карта: Уютная кофейня"
+        src="https://yandex.ru/map-widget/v1/?ll=39.697188%2C47.224112&z=17&pt=39.697188,47.224112,pm2gnm"
+        loading="lazy" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="year"></span> Уютная кофейня, Ростов-на-Дону</div>
+</footer>
+
+<script>
+/* ===== МЕНЮ: редактируйте здесь =====
+   name — название, price — цена, desc — описание,
+   img — путь к фото (папка images/), emoji — запасная иконка, если фото нет.
+   Цены ниже — примеры, замените на свои. */
+const MENU = {
+  "Кофе": [
+    {name:"Капучино", price:"190–280 ₽", desc:"Эспрессо и нежная молочная пена. Цена зависит от объёма.", img:"images/cappuccino.jpg", emoji:"☕"},
+    {name:"Эспрессо", price:"120 ₽", desc:"Классический, плотный, с кремой.", img:"images/espresso.jpg", emoji:"☕"},
+    {name:"Латте", price:"230 ₽", desc:"Мягкий кофе с большим количеством молока.", img:"images/latte.jpg", emoji:"🥛"},
+    {name:"Раф", price:"280 ₽", desc:"На сливках с ванильным сахаром.", img:"images/raf.jpg", emoji:"☕"}
+  ],
+  "Чай": [
+    {name:"Чёрный чай", price:"150 ₽", desc:"Чайник на двоих.", img:"images/tea-black.jpg", emoji:"🫖"},
+    {name:"Зелёный чай", price:"150 ₽", desc:"Лёгкий, без горечи.", img:"images/tea-green.jpg", emoji:"🍵"},
+    {name:"Облепиховый чай", price:"220 ₽", desc:"С мёдом и имбирём.", img:"images/tea-sea.jpg", emoji:"🍊"}
+  ],
+  "Завтраки и обеды": [
+    {name:"Бизнес-ланч", price:"230 ₽", desc:"Суп, горячее и напиток.", img:"images/lunch.jpg", emoji:"🍲"},
+    {name:"Сырники", price:"250 ₽", desc:"Со сметаной и джемом.", img:"images/syrniki.jpg", emoji:"🥞"},
+    {name:"Омлет с овощами", price:"240 ₽", desc:"Подаётся с тостом.", img:"images/omelet.jpg", emoji:"🍳"}
+  ],
+  "Десерты": [
+    {name:"Круассан", price:"130 ₽", desc:"Свежий, сливочный.", img:"images/croissant.jpg", emoji:"🥐"},
+    {name:"Чизкейк", price:"220 ₽", desc:"Нежный, на песочной основе.", img:"images/cheesecake.jpg", emoji:"🍰"}
+  ]
+};
+
+const tabsEl = document.getElementById('tabs');
+const gridEl = document.getElementById('grid');
+
+function show(cat){
+  [...tabsEl.children].forEach(b => b.setAttribute('aria-selected', b.textContent === cat));
+  gridEl.innerHTML = '';
+  MENU[cat].forEach(p => {
+    const el = document.createElement('article');
+    el.className = 'item';
+    el.innerHTML = `
+      <div class="ph"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+      <div class="body">
+        <h3><span>${p.name}</span><span class="price">${p.price}</span></h3>
+        <p>${p.desc}</p>
+      </div>`;
+    const img = el.querySelector('img');
+    img.onerror = () => { img.replaceWith(document.createTextNode(p.emoji)); };
+    gridEl.appendChild(el);
+  });
+}
+
+Object.keys(MENU).forEach((cat, i) => {
+  const b = document.createElement('button');
+  b.className = 'tab';
+  b.type = 'button';
+  b.setAttribute('role', 'tab');
+  b.textContent = cat;
+  b.onclick = () => show(cat);
+  tabsEl.appendChild(b);
+  if (i === 0) show(cat);
+});
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
